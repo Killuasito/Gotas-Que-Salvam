@@ -47,7 +47,9 @@ function AdminDashboard() {
       "RG",
       "Curso",
       "Semestre",
-      "Feedback",
+      "Avaliação da Palestra",
+      "Doador Anterior",
+      "Disposição para Doar",
       "Data de Registro",
     ];
     const data = registrations.map((reg) => [
@@ -55,8 +57,10 @@ function AdminDashboard() {
       reg.email,
       reg.rg || "N/A",
       reg.course || "N/A",
-      reg.semester ? `${reg.semester}º` : "N/A",
+      reg.semester || "N/A",
       reg.feedback || "N/A",
+      reg.previousDonor || "N/A",
+      reg.donationIntent || "N/A",
       formatDate(reg.createdAt),
     ]);
 
@@ -136,7 +140,9 @@ function AdminDashboard() {
                   {registration.course || "N/A"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  {registration.semester ? `${registration.semester}º` : "N/A"}
+                  {registration.semester
+                    ? `${registration.semester} semestre`
+                    : "N/A"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   {formatDate(registration.createdAt)}
@@ -163,12 +169,35 @@ function AdminDashboard() {
                 </div>
                 <div className="text-sm text-gray-600">
                   {registration.course
-                    ? `${registration.course} - ${registration.semester}º semestre`
+                    ? `${registration.course} - ${registration.semester} semestre`
                     : "Participante Externo"}
                 </div>
-                <p className="text-gray-700 text-sm mt-2 whitespace-pre-wrap">
-                  {registration.feedback}
-                </p>
+                <div className="flex flex-col gap-2 mt-2">
+                  <div className="flex items-center">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                      Avaliação
+                    </span>
+                    <p className="text-gray-700 text-sm ml-2">
+                      {registration.feedback}
+                    </p>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                      Doador
+                    </span>
+                    <p className="text-gray-700 text-sm ml-2">
+                      {registration.previousDonor}
+                    </p>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                      Disposição
+                    </span>
+                    <p className="text-gray-700 text-sm ml-2">
+                      {registration.donationIntent}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
         </div>

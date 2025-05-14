@@ -12,8 +12,10 @@ function CertificateForm() {
     rg: "",
     isInstitutionStudent: false,
     course: "",
-    semester: "1",
-    feedback: "", // Add feedback field
+    semester: "1°",
+    feedback: "",
+    previousDonor: "",
+    donationIntent: "",
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -163,14 +165,14 @@ function CertificateForm() {
                       setFormData({ ...formData, semester: e.target.value })
                     }
                   >
-                    <option value="1">Primeiro</option>
-                    <option value="2">Segundo</option>
-                    <option value="3">Terceiro</option>
-                    <option value="4">Quarto</option>
-                    <option value="5">Quinto</option>
-                    <option value="6">Sexto</option>
-                    <option value="7">Sétimo</option>
-                    <option value="8">Oitavo</option>
+                    <option value="1°">1° Semestre</option>
+                    <option value="2°">2° Semestre</option>
+                    <option value="3°">3° Semestre</option>
+                    <option value="4°">4° Semestre</option>
+                    <option value="5°">5° Semestre</option>
+                    <option value="6°">6° Semestre</option>
+                    <option value="7°">7° Semestre</option>
+                    <option value="8°">8° Semestre</option>
                   </select>
                 </div>
 
@@ -192,21 +194,118 @@ function CertificateForm() {
               </div>
             )}
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700 flex items-center">
-                Feedback sobre a palestra
+            <div className="space-y-4">
+              <label className="block text-sm font-medium text-gray-700">
+                1. Como você avalia a palestra?
                 <span className="text-red-500 ml-1">*</span>
               </label>
-              <textarea
-                required
-                className="focus:outline-none focus:ring-red-500 focus:border-red-500 block w-full p-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
-                placeholder="Compartilhe sua opinião sobre a palestra"
-                rows="4"
-                value={formData.feedback}
-                onChange={(e) =>
-                  setFormData({ ...formData, feedback: e.target.value })
-                }
-              />
+              <div className="space-y-2">
+                {[
+                  "Excelente, muito informativa e esclarecedora",
+                  "Boa, aprendi coisas novas",
+                  "Regular, atendeu parcialmente minhas expectativas",
+                  "Ruim, precisa melhorar em vários aspectos",
+                ].map((option) => (
+                  <div key={option} className="flex items-center">
+                    <input
+                      type="radio"
+                      id={`feedback-${option}`}
+                      name="feedback"
+                      value={option}
+                      required
+                      className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300"
+                      checked={formData.feedback === option}
+                      onChange={(e) =>
+                        setFormData({ ...formData, feedback: e.target.value })
+                      }
+                    />
+                    <label
+                      htmlFor={`feedback-${option}`}
+                      className="ml-2 block text-sm text-gray-700"
+                    >
+                      {option}
+                    </label>
+                  </div>
+                ))}
+              </div>
+
+              <label className="block text-sm font-medium text-gray-700 mt-6">
+                2. Você já era doador de sangue antes da palestra?
+                <span className="text-red-500 ml-1">*</span>
+              </label>
+              <div className="space-y-2">
+                {[
+                  { value: "Sim", label: "Sim" },
+                  { value: "Não", label: "Não" },
+                ].map((option) => (
+                  <div key={option.value} className="flex items-center">
+                    <input
+                      type="radio"
+                      id={`previousDonor-${option.value}`}
+                      name="previousDonor"
+                      value={option.value}
+                      required
+                      className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300"
+                      checked={formData.previousDonor === option.value}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          previousDonor: e.target.value,
+                        })
+                      }
+                    />
+                    <label
+                      htmlFor={`previousDonor-${option.value}`}
+                      className="ml-2 block text-sm text-gray-700"
+                    >
+                      {option.label}
+                    </label>
+                  </div>
+                ))}
+              </div>
+
+              <label className="block text-sm font-medium text-gray-700 mt-6">
+                3. Após a palestra, qual é a sua disposição para doar sangue?
+                <span className="text-red-500 ml-1">*</span>
+              </label>
+              <div className="space-y-2">
+                {[
+                  { value: "certeza", label: "Com certeza pretendo doar" },
+                  {
+                    value: "interessado",
+                    label: "Fiquei interessado, mas ainda tenho dúvidas",
+                  },
+                  {
+                    value: "provavelmente-nao",
+                    label: "Provavelmente não vou doar",
+                  },
+                  { value: "nao-pretendo", label: "Pretendo não doar" },
+                ].map((option) => (
+                  <div key={option.value} className="flex items-center">
+                    <input
+                      type="radio"
+                      id={`donationIntent-${option.value}`}
+                      name="donationIntent"
+                      value={option.value}
+                      required
+                      className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300"
+                      checked={formData.donationIntent === option.value}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          donationIntent: e.target.value,
+                        })
+                      }
+                    />
+                    <label
+                      htmlFor={`donationIntent-${option.value}`}
+                      className="ml-2 block text-sm text-gray-700"
+                    >
+                      {option.label}
+                    </label>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
