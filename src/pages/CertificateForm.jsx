@@ -12,7 +12,8 @@ function CertificateForm() {
     rg: "",
     isInstitutionStudent: false,
     course: "",
-    semester: "2023.2", // Add default semester
+    semester: "1",
+    feedback: "", // Add feedback field
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -30,7 +31,11 @@ function CertificateForm() {
       const blob = await pdf(
         <CertificateTemplate
           name={formData.name}
-          date={new Date().toLocaleDateString("pt-BR")}
+          date={new Date().toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })}
           course={formData.course}
           semester={formData.semester}
         />
@@ -186,6 +191,23 @@ function CertificateForm() {
                 </div>
               </div>
             )}
+
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700 flex items-center">
+                Feedback sobre a palestra
+                <span className="text-red-500 ml-1">*</span>
+              </label>
+              <textarea
+                required
+                className="focus:outline-none focus:ring-red-500 focus:border-red-500 block w-full p-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
+                placeholder="Compartilhe sua opinião sobre a palestra"
+                rows="4"
+                value={formData.feedback}
+                onChange={(e) =>
+                  setFormData({ ...formData, feedback: e.target.value })
+                }
+              />
+            </div>
           </div>
 
           <button

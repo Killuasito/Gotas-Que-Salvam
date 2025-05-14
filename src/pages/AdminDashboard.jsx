@@ -32,6 +32,14 @@ function AdminDashboard() {
     fetchRegistrations();
   }, []);
 
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  };
+
   const exportToCSV = () => {
     const headers = [
       "Nome",
@@ -39,7 +47,8 @@ function AdminDashboard() {
       "RG",
       "Curso",
       "Semestre",
-      "Data de Criação",
+      "Feedback",
+      "Data de Registro",
     ];
     const data = registrations.map((reg) => [
       reg.name,
@@ -47,7 +56,8 @@ function AdminDashboard() {
       reg.rg || "N/A",
       reg.course || "N/A",
       reg.semester ? `${reg.semester}º` : "N/A",
-      new Date(reg.createdAt).toLocaleDateString(),
+      reg.feedback || "N/A",
+      formatDate(reg.createdAt),
     ]);
 
     const csvContent = [
@@ -73,8 +83,8 @@ function AdminDashboard() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <div className="flex justify-between items-center mb-6">
+    <div className="max-w-6xl mx-auto p-6 space-y-8">
+      <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Painel Administrativo</h2>
         <button
           onClick={exportToCSV}
@@ -85,6 +95,7 @@ function AdminDashboard() {
         </button>
       </div>
 
+      {/* Registros */}
       <div className="bg-white rounded-lg shadow overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -128,12 +139,39 @@ function AdminDashboard() {
                   {registration.semester ? `${registration.semester}º` : "N/A"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  {new Date(registration.createdAt).toLocaleDateString()}
+                  {formatDate(registration.createdAt)}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Feedbacks Section */}
+      <div className="mt-8">
+        <h3 className="text-xl font-bold mb-4">Feedbacks dos Participantes</h3>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {registrations
+            .filter((reg) => reg.feedback && reg.feedback.trim() !== "")
+            .map((registration) => (
+              <div
+                key={`feedback-${registration.id}`}
+                className="bg-white rounded-lg shadow p-4 space-y-2 hover:shadow-md transition-shadow"
+              >
+                <div className="font-semibold text-red-600">
+                  {registration.name}
+                </div>
+                <div className="text-sm text-gray-600">
+                  {registration.course
+                    ? `${registration.course} - ${registration.semester}º semestre`
+                    : "Participante Externo"}
+                </div>
+                <p className="text-gray-700 text-sm mt-2 whitespace-pre-wrap">
+                  {registration.feedback}
+                </p>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );
