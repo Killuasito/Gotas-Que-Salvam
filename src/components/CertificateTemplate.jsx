@@ -7,6 +7,8 @@ import {
   StyleSheet,
   Image,
 } from "@react-pdf/renderer";
+// Importe a imagem da assinatura (ajuste o caminho conforme necessário)
+import assinatura from "../assets/assinatura.png";
 
 const styles = StyleSheet.create({
   page: {
@@ -91,15 +93,13 @@ const styles = StyleSheet.create({
   },
   signature: {
     width: 150,
-    height: 2,
-    backgroundColor: "#DC2626",
     marginTop: 50,
     marginBottom: 10,
   },
-  signatureText: {
-    fontSize: 12,
-    color: "#444",
-    textAlign: "center",
+  signatureImage: {
+    width: 150,
+    height: 60,
+    objectFit: "contain",
   },
 });
 
@@ -114,14 +114,17 @@ const CertificateTemplate = ({ name, date, course, semester }) => (
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.contentBottom}>
             participou da palestra sobre Doação de Sangue, com carga horária de
-            2 horas, realizada em {date}
+            5 horas, realizada em {date}
             {course
               ? `. Representando o curso de ${course} - ${semester} semestre`
               : "."}
           </Text>
 
-          <View style={styles.signature} />
-          <Text style={styles.signatureText}>Coordenador(a) do Evento</Text>
+          {/* Substitua a View da assinatura pela Image */}
+          <View style={styles.signature}>
+            <Image src={assinatura} style={styles.signatureImage} />
+          </View>
+          <Text style={styles.signatureText}>Coordenador do Curso de ADM</Text>
 
           <Text style={styles.footer}>
             Certificado registrado sob o número:{" "}
