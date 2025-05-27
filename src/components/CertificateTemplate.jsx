@@ -124,7 +124,7 @@ const CertificateTemplate = ({ name, date, course, semester }) => (
           <View style={styles.signature}>
             <Image src={assinatura} style={styles.signatureImage} />
           </View>
-          <Text style={styles.signatureText}>Coordenador do Curso de ADM</Text>
+          <Text style={styles.signatureText}>(Milton) Coordenador do Curso de ADM</Text>
 
           <Text style={styles.footer}>
             Certificado registrado sob o número:{" "}
