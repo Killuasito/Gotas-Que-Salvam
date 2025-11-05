@@ -113,8 +113,8 @@ const CertificateTemplate = ({ name, date, course, semester }) => (
           <Text style={styles.contentTop}>Certificamos que</Text>
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.contentBottom}>
-            participou da palestra sobre Doação de Sangue, com carga horária de
-            5 horas, realizada em {date}
+            participou do Sarau FICS, com carga horária de
+            3 horas, realizada em {date}
             {course
               ? `. Representando o curso de ${course} - ${semester} semestre`
               : "."}
