@@ -16,13 +16,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
   border: {
-    border: "15px solid #DC2626",
+    border: "15px solid #2563EB",
     padding: 20,
     margin: 10,
     height: "90%",
   },
   innerBorder: {
-    border: "2px solid #DC2626",
+    border: "2px solid #2563EB",
     padding: 20,
     height: "100%",
     display: "flex",
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     fontSize: 42,
     fontWeight: "bold",
     marginBottom: 30,
-    color: "#DC2626",
+    color: "#2563EB",
     textAlign: "center",
   },
   subHeader: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     marginTop: 10,
     marginBottom: 30,
-    color: "#DC2626",
+    color: "#2563EB",
     textAlign: "center",
     textTransform: "uppercase",
     fontWeight: "bold",
