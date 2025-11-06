@@ -68,7 +68,7 @@ function CertificateForm() {
             Certificado de Participação
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Palestra sobre Doação de Sangue
+            Sarau FICS
           </p>
         </div>
 
