@@ -73,10 +73,10 @@ function CertificateForm() {
         </div>
 
         {message && (
-          <div className="rounded-md bg-red-50 p-4">
+          <div className="rounded-md bg-blue-50 p-4">
             <div className="flex">
               <div className="ml-3">
-                <p className="text-sm font-medium text-red-800">{message}</p>
+                <p className="text-sm font-medium text-blue-800">{message}</p>
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@ function CertificateForm() {
               <input
                 type="text"
                 required
-                className="focus:outline-none focus:ring-red-500 focus:border-red-500 block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
+                className="focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
                 placeholder="Nome completo"
                 value={formData.name}
                 onChange={(e) =>
@@ -107,7 +107,7 @@ function CertificateForm() {
               <input
                 type="email"
                 required
-                className="focus:outline-none focus:ring-red-500 focus:border-red-500 block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
+                className="focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
                 placeholder="Email"
                 value={formData.email}
                 onChange={(e) =>
@@ -120,7 +120,7 @@ function CertificateForm() {
               <input
                 type="checkbox"
                 id="isStudent"
-                className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded transition duration-150 ease-in-out"
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded transition duration-150 ease-in-out"
                 checked={formData.isInstitutionStudent}
                 onChange={(e) =>
                   setFormData({
@@ -145,7 +145,7 @@ function CertificateForm() {
                   </div>
                   <input
                     type="text"
-                    className="focus:outline-none focus:ring-red-500 focus:border-red-500 block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
+                    className="focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
                     placeholder="Nome do Curso"
                     value={formData.course}
                     onChange={(e) =>
@@ -159,7 +159,7 @@ function CertificateForm() {
                     <FiFileText className="h-5 w-5 text-gray-400" />
                   </div>
                   <select
-                    className="focus:outline-none focus:ring-red-500 focus:border-red-500 block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
+                    className="focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
                     value={formData.semester}
                     onChange={(e) =>
                       setFormData({ ...formData, semester: e.target.value })
@@ -183,7 +183,7 @@ function CertificateForm() {
                   <input
                     type="text"
                     required
-                    className="focus:outline-none focus:ring-red-500 focus:border-red-500 block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
+                    className="focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 transition duration-150 ease-in-out"
                     placeholder="RG"
                     value={formData.rg}
                     onChange={(e) =>
@@ -197,7 +197,7 @@ function CertificateForm() {
             <div className="space-y-4">
               <label className="block text-sm font-medium text-gray-700">
                 1. Como você avalia a palestra?
-                <span className="text-red-500 ml-1">*</span>
+                <span className="text-blue-500 ml-1">*</span>
               </label>
               <div className="space-y-2">
                 {[
@@ -213,7 +213,7 @@ function CertificateForm() {
                       name="feedback"
                       value={option}
                       required
-                      className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300"
+                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                       checked={formData.feedback === option}
                       onChange={(e) =>
                         setFormData({ ...formData, feedback: e.target.value })
@@ -231,7 +231,7 @@ function CertificateForm() {
 
               <label className="block text-sm font-medium text-gray-700 mt-6">
                 2. Você já era doador de sangue antes da palestra?
-                <span className="text-red-500 ml-1">*</span>
+                <span className="text-blue-500 ml-1">*</span>
               </label>
               <div className="space-y-2">
                 {[
@@ -245,7 +245,7 @@ function CertificateForm() {
                       name="previousDonor"
                       value={option.value}
                       required
-                      className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300"
+                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                       checked={formData.previousDonor === option.value}
                       onChange={(e) =>
                         setFormData({
@@ -266,7 +266,7 @@ function CertificateForm() {
 
               <label className="block text-sm font-medium text-gray-700 mt-6">
                 3. Após a palestra, qual é a sua disposição para doar sangue?
-                <span className="text-red-500 ml-1">*</span>
+                <span className="text-blue-500 ml-1">*</span>
               </label>
               <div className="space-y-2">
                 {[
@@ -288,7 +288,7 @@ function CertificateForm() {
                       name="donationIntent"
                       value={option.value}
                       required
-                      className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300"
+                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                       checked={formData.donationIntent === option.value}
                       onChange={(e) =>
                         setFormData({
@@ -312,7 +312,7 @@ function CertificateForm() {
           <button
             type="submit"
             disabled={loading}
-            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150 ease-in-out disabled:bg-red-300 disabled:cursor-not-allowed"
+            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out disabled:bg-blue-300 disabled:cursor-not-allowed"
           >
             {loading ? (
               <span className="flex items-center">

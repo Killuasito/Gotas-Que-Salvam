@@ -164,7 +164,7 @@ function AdminDashboard() {
                 key={`feedback-${registration.id}`}
                 className="bg-white rounded-lg shadow p-4 space-y-2 hover:shadow-md transition-shadow"
               >
-                <div className="font-semibold text-red-600">
+                <div className="font-semibold text-blue-600">
                   {registration.name}
                 </div>
                 <div className="text-sm text-gray-600">
@@ -174,7 +174,7 @@ function AdminDashboard() {
                 </div>
                 <div className="flex flex-col gap-2 mt-2">
                   <div className="flex items-center">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                       Avaliação
                     </span>
                     <p className="text-gray-700 text-sm ml-2">
@@ -182,7 +182,7 @@ function AdminDashboard() {
                     </p>
                   </div>
                   <div className="flex items-center">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                       Doador
                     </span>
                     <p className="text-gray-700 text-sm ml-2">
@@ -190,7 +190,7 @@ function AdminDashboard() {
                     </p>
                   </div>
                   <div className="flex items-center">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                       Disposição
                     </span>
                     <p className="text-gray-700 text-sm ml-2">
