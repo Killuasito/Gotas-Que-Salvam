@@ -19,7 +19,7 @@ function Login() {
       setLoading(true);
       await login(email, password);
       navigate("/admin");
-    } catch (error) {
+    } catch {
       setError("Falha ao fazer login. Verifique suas credenciais.");
     }
     setLoading(false);

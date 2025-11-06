@@ -23,7 +23,7 @@ function CertificateForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      const docRef = await addDoc(collection(db, "certificates"), {
+      await addDoc(collection(db, "certificates"), {
         ...formData,
         createdAt: new Date().toISOString(),
       });
