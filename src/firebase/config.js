@@ -4,13 +4,13 @@ import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   // Substitua estas informações pelas suas credenciais do Firebase
-  apiKey: "AIzaSyBeEz2m21rW2m4zSo4SARdMkaTzErNj6YA",
-  authDomain: "gotas-que-salvam.firebaseapp.com",
-  projectId: "gotas-que-salvam",
-  storageBucket: "gotas-que-salvam.firebasestorage.app",
-  messagingSenderId: "702495072549",
-  appId: "1:702495072549:web:aa035cc24f88617939facc",
-  measurementId: "G-3W10XNWH7Z",
+  apiKey: "AIzaSyCmCbihkyjauRFgHJ0J3kA_6TtmbHQE_VA",
+  authDomain: "sarau-655de.firebaseapp.com",
+  projectId: "sarau-655de",
+  storageBucket: "sarau-655de.firebasestorage.app",
+  messagingSenderId: "1063972416902",
+  appId: "1:1063972416902:web:60dee2f00b6c82a7561007",
+  measurementId: "G-W3HM32VNN7"
 };
 
 const app = initializeApp(firebaseConfig);
