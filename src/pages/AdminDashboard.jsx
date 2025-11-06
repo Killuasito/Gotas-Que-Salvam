@@ -47,7 +47,6 @@ function AdminDashboard() {
       "RG",
       "Curso",
       "Semestre",
-      "Avaliação da Palestra",
       "Doador Anterior",
       "Disposição para Doar",
       "Data de Registro",
@@ -58,7 +57,6 @@ function AdminDashboard() {
       reg.rg || "N/A",
       reg.course || "N/A",
       reg.semester || "N/A",
-      reg.feedback || "N/A",
       reg.previousDonor || "N/A",
       reg.donationIntent || "N/A",
       formatDate(reg.createdAt),
@@ -155,11 +153,9 @@ function AdminDashboard() {
 
       {/* Feedbacks Section */}
       <div className="mt-8">
-        <h3 className="text-xl font-bold mb-4">Feedbacks dos Participantes</h3>
+        <h3 className="text-xl font-bold mb-4">Respostas dos Participantes</h3>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {registrations
-            .filter((reg) => reg.feedback && reg.feedback.trim() !== "")
-            .map((registration) => (
+          {registrations.map((registration) => (
               <div
                 key={`feedback-${registration.id}`}
                 className="bg-white rounded-lg shadow p-4 space-y-2 hover:shadow-md transition-shadow"
@@ -175,18 +171,10 @@ function AdminDashboard() {
                 <div className="flex flex-col gap-2 mt-2">
                   <div className="flex items-center">
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                      Avaliação
-                    </span>
-                    <p className="text-gray-700 text-sm ml-2">
-                      {registration.feedback}
-                    </p>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                       Doador
                     </span>
                     <p className="text-gray-700 text-sm ml-2">
-                      {registration.previousDonor}
+                      {registration.previousDonor || "N/A"}
                     </p>
                   </div>
                   <div className="flex items-center">
@@ -194,7 +182,7 @@ function AdminDashboard() {
                       Disposição
                     </span>
                     <p className="text-gray-700 text-sm ml-2">
-                      {registration.donationIntent}
+                      {registration.donationIntent || "N/A"}
                     </p>
                   </div>
                 </div>

@@ -13,7 +13,6 @@ function CertificateForm() {
     isInstitutionStudent: false,
     course: "",
     semester: "1°",
-    feedback: "",
     previousDonor: "",
     donationIntent: "",
   });
@@ -195,42 +194,8 @@ function CertificateForm() {
             )}
 
             <div className="space-y-4">
-              <label className="block text-sm font-medium text-gray-700">
-                1. Como você avalia a palestra?
-                <span className="text-blue-500 ml-1">*</span>
-              </label>
-              <div className="space-y-2">
-                {[
-                  "Excelente, muito informativa e esclarecedora",
-                  "Boa, aprendi coisas novas",
-                  "Regular, atendeu parcialmente minhas expectativas",
-                  "Ruim, precisa melhorar em vários aspectos",
-                ].map((option) => (
-                  <div key={option} className="flex items-center">
-                    <input
-                      type="radio"
-                      id={`feedback-${option}`}
-                      name="feedback"
-                      value={option}
-                      required
-                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                      checked={formData.feedback === option}
-                      onChange={(e) =>
-                        setFormData({ ...formData, feedback: e.target.value })
-                      }
-                    />
-                    <label
-                      htmlFor={`feedback-${option}`}
-                      className="ml-2 block text-sm text-gray-700"
-                    >
-                      {option}
-                    </label>
-                  </div>
-                ))}
-              </div>
-
               <label className="block text-sm font-medium text-gray-700 mt-6">
-                2. Você já era doador de sangue antes da palestra?
+                1. Você já era doador de sangue antes da palestra?
                 <span className="text-blue-500 ml-1">*</span>
               </label>
               <div className="space-y-2">
@@ -265,7 +230,7 @@ function CertificateForm() {
               </div>
 
               <label className="block text-sm font-medium text-gray-700 mt-6">
-                3. Após a palestra, qual é a sua disposição para doar sangue?
+                2. Após a palestra, qual é a sua disposição para doar sangue?
                 <span className="text-blue-500 ml-1">*</span>
               </label>
               <div className="space-y-2">
