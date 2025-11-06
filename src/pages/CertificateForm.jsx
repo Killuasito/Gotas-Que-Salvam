@@ -13,8 +13,6 @@ function CertificateForm() {
     isInstitutionStudent: false,
     course: "",
     semester: "1°",
-    previousDonor: "",
-    donationIntent: "",
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -193,8 +191,7 @@ function CertificateForm() {
                 </div>
               </div>
             )}
-
-             
+          </div>
 
           <button
             type="submit"
