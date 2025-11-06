@@ -20,6 +20,7 @@ function Login() {
       await login(email, password);
       navigate("/admin");
     } catch {
+      // Authentication error - credentials are invalid
       setError("Falha ao fazer login. Verifique suas credenciais.");
     }
     setLoading(false);

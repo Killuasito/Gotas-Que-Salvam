@@ -23,6 +23,7 @@ function CertificateForm() {
     e.preventDefault();
     setLoading(true);
     try {
+      // Save certificate data to Firestore
       await addDoc(collection(db, "certificates"), {
         ...formData,
         createdAt: new Date().toISOString(),
