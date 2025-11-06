@@ -5,6 +5,7 @@ import { FiUser, FiMail, FiFileText } from "react-icons/fi";
 import { pdf } from "@react-pdf/renderer";
 import CertificateTemplate from "../components/CertificateTemplate";
 
+
 function CertificateForm() {
   const [formData, setFormData] = useState({
     name: "",
