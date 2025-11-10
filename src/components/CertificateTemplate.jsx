@@ -114,7 +114,7 @@ const CertificateTemplate = ({ name, date, course, semester }) => (
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.contentBottom}>
             participou do Sarau FICS, com carga horária de
-            3 horas, realizada em {date}
+            15 horas, realizada em {date}
             {course
               ? `. Representando o curso de ${course} - ${semester} semestre`
               : "."}
