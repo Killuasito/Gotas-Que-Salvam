@@ -101,9 +101,15 @@ const styles = StyleSheet.create({
     height: 60,
     objectFit: "contain",
   },
+  signatureText: {
+    fontSize: 14,
+    color: "#444",
+    textAlign: "center",
+    marginTop: 5,
+  },
 });
 
-const CertificateTemplate = ({ name, date, course, semester }) => (
+const CertificateTemplate = ({ name, course, semester }) => (
   <Document>
     <Page size="A4" orientation="landscape" style={styles.page}>
       <View style={styles.border}>
@@ -114,7 +120,7 @@ const CertificateTemplate = ({ name, date, course, semester }) => (
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.contentBottom}>
             participou do Sarau FICS, com carga horária de
-            15 horas, realizada em {date}
+            15 horas, realizada em 06 de novembro de 2024
             {course
               ? `. Representando o curso de ${course} - ${semester} semestre`
               : "."}
