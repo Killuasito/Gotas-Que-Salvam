@@ -120,7 +120,7 @@ const CertificateTemplate = ({ name, course, semester }) => (
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.contentBottom}>
             participou do Sarau FICS, com carga horária de
-            15 horas, realizada em 06 de novembro de 2024
+            15 horas, realizada em 06 de novembro de 2025
             {course
               ? `. Representando o curso de ${course} - ${semester} semestre`
               : "."}
